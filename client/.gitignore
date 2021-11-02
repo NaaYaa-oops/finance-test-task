@@ -23,5 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # behavior
+../.idea/
 ../.idea
 .idea
+/.idea
