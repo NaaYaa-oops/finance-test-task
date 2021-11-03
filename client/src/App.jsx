@@ -4,7 +4,7 @@ import {Container} from '@mui/material'
 
 function App() {
     return (
-        <Container maxWidth={'sm'}>
+        <Container maxWidth={'md'}>
             <Ticker/>
         </Container>
     )

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useActions} from './useActions'
-import {BASE_URL} from '../helpers/baseUrl'
+import {BASE_URL} from '../helpers'
 import io from 'socket.io-client'
 
 
