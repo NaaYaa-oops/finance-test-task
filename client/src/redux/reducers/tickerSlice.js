@@ -1,12 +1,10 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import axios from 'axios'
-import {BASE_URL} from '../../helpers'
+import {createSlice} from '@reduxjs/toolkit'
 
 
 const initialState = {
-    tickers: []
+    tickers: [],
+    deletedTickers: []
 }
-
 // export const setFetchInterval = createAsyncThunk('ticker/fetchInterval',
 //     async (arg) => {
 //         await axios.post(`${BASE_URL}api/set-timer`, {timer: +arg})
@@ -18,10 +16,6 @@ export const tickerSlice = createSlice({
     reducers: {
         setNewTickers(state, action) {
             state.tickers = action.payload
-        },
-        deleteTickerByName(state, action) {
-            state.tickers = state.tickers.filter(
-                ticker => ticker.ticker !== action.payload.ticker)
         }
     }
 })

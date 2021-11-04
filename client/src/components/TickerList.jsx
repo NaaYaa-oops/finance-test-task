@@ -1,7 +1,7 @@
-import React, {memo} from 'react'
+import React from 'react'
 import {List} from '@mui/material'
-import TickerItem from './TickerItem'
 import {useSelector} from 'react-redux'
+import TickerItem from './TickerItem'
 
 
 const TickerList = () => {
@@ -17,4 +17,4 @@ const TickerList = () => {
     )
 }
 
-export default memo(TickerList)
+export default TickerList
