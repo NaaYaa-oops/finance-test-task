@@ -1,7 +1,8 @@
 import React, {memo} from 'react'
 import CountUp from 'react-countup'
 import {TickerTitle} from './TickerTitle'
-import {ListItem, ListItemText} from '@mui/material'
+import {IconButton, ListItem, ListItemText} from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 import {
     calculateChangedWorth,
     calculateDividendYield,
@@ -9,15 +10,19 @@ import {
 } from '../helpers'
 import cn from 'classnames'
 import classes from './tickerItem.module.scss'
+import {useActions} from '../hooks/useActions'
 
 
 const TickerItem = (props) => {
     const {ticker, price, dividend, yield: stockYield, change, change_percent, last_trade_time} = props
-    // const tickerTitle = useMemo(() => <TickerTitle ticker={ticker}/>, [ticker])
     const stocks = cn({
         [classes.stocks_up]: stockYield >= 1,
         [classes.stocks_down]: stockYield < 1
     })
+    const {deleteTickerByName} = useActions()
+    const deleteHandler = event => {
+        deleteTickerByName({ticker})
+    }
     return (
         <ListItem>
             <TickerTitle ticker={ticker}/>
@@ -44,6 +49,9 @@ const TickerItem = (props) => {
             <ListItemText>
                 {dateToLocaleDate(last_trade_time)}
             </ListItemText>
+            <IconButton edge="end" aria-label="delete" onClick={deleteHandler}>
+                <DeleteIcon/>
+            </IconButton>
         </ListItem>
     )
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 import {Ticker} from './components/Ticker'
 import {Container} from '@mui/material'
 
